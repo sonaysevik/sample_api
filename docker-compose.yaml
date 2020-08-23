@@ -1,0 +1,35 @@
+version: '2.0'
+services:
+  db:
+    build: 
+      context: ./database/
+      dockerfile: db.Dockerfile
+    image: postgres_db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=kolay_vCRt65
+      - POSTGRES_USER=api_user
+      - POSTGRES_DB=currency
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: api
+    ports: 
+      - 2001:2001
+    environment:
+      - NODE_ENV=production
+      - PORT=2001
+      - DB_HOST=db
+      - DB_NAME=currency
+      - DB_USERNAME=api_user
+      - DB_PASSWORD=kolay_vCRt65
+volumes:
+  dbdata:

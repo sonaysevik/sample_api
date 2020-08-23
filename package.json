@@ -1,0 +1,33 @@
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "description": "Sample Currency project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "cross-env NODE_ENV=test DB_HOST='192.168.99.100' DB_NAME='currencytest' DB_USERNAME='testuser' DB_PASSWORD='test-pass' jest --runInBand"
+  },
+  "author": "Sonay Sevik",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "http-status-codes": "^1.4.0",
+    "jsonschema": "^1.2.6",
+    "pg": "^8.3.0",
+    "sequelize": "^6.3.4",
+    "winston": "^3.3.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "jest": "^26.2.2",
+    "supertest": "^4.0.2"
+  }
+}
